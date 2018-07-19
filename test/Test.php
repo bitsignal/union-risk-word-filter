@@ -27,7 +27,7 @@ $svc = new \App\Service\RiskWordFilterService;
 $wordTrieTree  = $svc->buildWordTree($dbName, $wordArr);
 
 $title = '中国和德国踢足球';
-$filterWords = $svc->searchWord($title);
+$filterWords = $svc->searchWord($title, $dbName);
 /*
 array(2) {
   ["中国"]=>
