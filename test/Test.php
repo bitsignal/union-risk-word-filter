@@ -19,15 +19,13 @@ while(!feof($file)){
 }
 fclose($file);
 
-//词库名
-$dbName = 'safe_audit';
 
 //建立TrieTree
 $svc = new \App\Service\RiskWordFilterService;
-$wordTrieTree  = $svc->buildWordTree($dbName, $wordArr);
+$wordTrieTree  = $svc->buildWordTree($wordArr);
 
 $title = '中国和德国踢足球';
-$filterWords = $svc->searchWord($title, $dbName);
+$filterWords = $svc->searchWord($title);
 /*
 array(2) {
   ["中国"]=>

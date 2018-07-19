@@ -17,12 +17,11 @@ class RiskWordFilterService{
 
 	/**
 	 * 建立索引树
-	 * @param $dbName string 词库名称
 	 * @param $wordArr array 词条数组
 	 * @return boolean|array
 	 */
-	public function buildWordTree($dbName, $wordArr){
-		if( empty($dbName) || empty($wordArr) ){
+	public function buildWordTree( $wordArr ){
+		if( empty($wordArr) ){
 			return false;
 		}
 
@@ -59,10 +58,9 @@ class RiskWordFilterService{
 	/**
 	 * 用索引树过滤语句
 	 * @param $str string 需要检测的语句
-	 * @param $dbName string 使用的词库
 	 * @return array
 	 */
-	public function searchWord($str, $dbName){
+	public function searchWord( $str ){
 		$singleArr = $this->splitWord($str);
 		$countWord = count($singleArr);
 
